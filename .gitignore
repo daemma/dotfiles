@@ -1,0 +1,27 @@
+### ############################################################################
+##! @file       .gitignore
+##! @brief      Exclude files form git commits
+##! @author     0xD62EE11516877AA8
+##! @date       2016-09-17
+##! @copyright  GPLv3+
+
+## ??
+*~
+
+## +++++++++++++++++++++++++++++++++++++
+## Make sure to get the actual dotfiles
+!.*
+!.gitignore
+
+## +++++++++++++++++++++++++++++++++++++
+## Private file(s)
+## These shouldn't be present, but just in case ... 
+arm/.arm/cache
+emacs/.emacs.d/auto-save-list
+emacs/.emacs.d/elpa
+emacs/.emacs.d/ac-comphist.dat
+shell/.shell.d/*private*
+shell/.bash_history
+
+### end .gitignore_global
+### ############################################################################

@@ -34,7 +34,7 @@ fi
 ## +++++++++++++++++++++++++++++++++++++
 ## Stow the packages
 #Packages=`ls -l | grep '^d'`
-Packages='arm emacs git gnupg shell'
+Packages='gnupg emacs git arm rainbowstream shell'
 for pkg in $Packages; do
     if [ -d "$pkg" ] && [ -r "$pkg" ]; then
 	printf "Stowing %-8s --> %s\n" "${pkg}" "${Target}"

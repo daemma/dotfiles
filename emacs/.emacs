@@ -59,7 +59,7 @@
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories "$HOME/.emacs.d/ac-dict")
 (ac-config-default)
-
+;; (require 'jabber)
 
 ;; *****************************************************************************
 ;; Functions

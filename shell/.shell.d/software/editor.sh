@@ -1,3 +1,4 @@
+
 #!  /usr/bin/env bash
 ### ############################################################################
 ##! @file       editor.sh
@@ -7,15 +8,15 @@
 ##! @copyright  GPLv3+
 
 ## Default editor
-export EDITOR="${EDITOR:-$(which emacs)}"
+export EMACS="${EDITOR:-$(which emacs)}"
 if [ -x "$EDITOR" ] ; then
-    export SUDO_EDITOR="emacs"
+    export EDITOR="${EMACS}"
+    export SUDO_EDITOR="${EDITOR}"
 else
     export EDITOR="nano"
-    export SUDO_EDITOR="nano"
+    export SUDO_EDITOR="${EDITOR}"
 fi
-# debug "EDITOR: ${EDITOR}"
-# debug "SUDO_EDITOR: ${SUDO_EDITOR}"
+unset EMACS
 
 ### end editor.sh
 ### ############################################################################

@@ -10,7 +10,7 @@
 ## These are (mostly) auto-detected, if not explicitely set here.
 OPTLOCAL=""   ## system optional local:- /opt/local
 HOMELOCAL=""  ## user optional local:- $HOME/local
-EDITOR=""     ## default text editor:- emacs
+EDITOR="/usr/bin/emacs"     ## default text editor:- emacs
 PKG_MNGR=""   ## package manager:- distro-default
 GCC=""        ## C compiler:- gcc
 GPP=""        ## C++ compiler:- g++

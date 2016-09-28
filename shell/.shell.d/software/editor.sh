@@ -10,7 +10,7 @@
 ## Default editor
 export EMACS="${EDITOR:-$(which emacs)}"
 if [ -x "$EDITOR" ] ; then
-    export EDITOR="${EMACS}"
+    export EDITOR="${EMACS} -nw"
     export SUDO_EDITOR="${EDITOR}"
 else
     export EDITOR="nano"

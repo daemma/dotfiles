@@ -9,7 +9,13 @@
 REDDIT="${REDDIT:-$(get_which rtv)}"
 if [ -x "${REDDIT}" ] ; then
     export REDDIT="${REDDIT}"
-    alias reddit='torsocks ${REDDIT}'
+    alias reddit='/usr/bin/torsocks ${REDDIT}'
+    export RTV_EDITOR='/usr/bin/emacs'
+    # export BROWSER='/usr/bin/w3m'
+
+    ## From rtv github:
+    ## XDG_HOME = os.getenv('XDG_CONFIG_HOME', os.path.join(HOME, '.config'))
+    
 else
     warning "Failed to find 'rtv'"
     unset REDDIT

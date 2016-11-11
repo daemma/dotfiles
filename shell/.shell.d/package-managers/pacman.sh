@@ -31,14 +31,14 @@ if [ $EUID -ne 0 ]; then
     ## use sudo when user
     alias spm='sudo ${PKG_MNGR}'
 else
-    ## root don't need sudo
+    ## root don't need no sudo
     alias spm='${PKG_MNGR}'
 fi
 
 ## Synchronize with repos and upgrade packages that are out of date.
 alias pm-update='spm --sync --refresh --refresh'
 ## Upgrade packages that are out of date.
-alias pm-upgrade='spm --sync --sysupgrade --noconfirm'
+alias pm-upgrade='spm --sync --sysupgrade' #  --noconfirm
 ## Remove packages from the cache that are no longer installed
 alias pm-clean='spm --sync --clean'
 ## Remove all packages from the cache

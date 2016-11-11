@@ -80,3 +80,6 @@
 
 ## end .gitconfig
 ## #############################################################################
+[user]
+	name = daemma
+	email = daemma@riseup.net

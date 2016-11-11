@@ -11,12 +11,12 @@
 function print_welcome(){
     echo -ne "\e[2;37m"
     echo "---"
-    echo "host  : $HOSTNAME"
+    echo "host  : ${HOSTNAME}"
     echo "user  : $(grep $(whoami) /etc/passwd | \
-    		awk -F ':' '{print $5}' | \
-    		awk -F ',' '{print $1}') ($(whoami))"
-    echo "email : $EMAIL"
-    echo "key   : $KEY"
+    		    awk -F ':' '{print $5}' | \
+    		    awk -F ',' '{print $1}') ($(whoami))"
+    echo "email : ${EMAIL}"
+    echo "key   : ${KEY}"
     if [ -n "$SSH_CLIENT" ]; then
 	local ll_from=`lastlog -u $(whoami) | sed -ne '2{p;q}' | cut -c 27-42`
 	ll_at=`lastlog -u $(whoami) | sed -ne '2{p;q}' | cut -c 44-73`

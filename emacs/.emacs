@@ -41,8 +41,10 @@
     (require 'color-theme) (color-theme-initialize)
     (require 'color-theme-tango) (color-theme-tango))
 (require 'autopair) (autopair-global-mode) 
-(add-hook 'latex-mode-hook (lambda ()(flyspell-mode 1))) 
 (add-hook 'text-mode-hook 'flyspell-mode)
+(add-hook 'latex-mode-hook (lambda ()(flyspell-mode 1))) 
+(add-hook 'tex-mode-hook   (lambda ()(flyspell-mode 1))) 
+(setq auto-mode-alist (cons '("\\.tex" . latex-mode) auto-mode-alist))
 (add-hook 'emacs-lisp-mode-hook 'eldoc-mode)
 (autoload 'markdown-mode "markdown-mode.el" t)
 (setq auto-mode-alist 
@@ -56,9 +58,9 @@
       (append '(("CMakeLists\\.txt\\'" . cmake-mode)
 		("\\.cmake\\'" . cmake-mode))
 	      auto-mode-alist))
-(require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories "$HOME/.emacs.d/ac-dict")
-(ac-config-default)
+;; (require 'auto-complete-config)
+;; (add-to-list 'ac-dictionary-directories "$HOME/.emacs.d/ac-dict")
+;; (ac-config-default)
 ;; (require 'jabber)
 
 ;; *****************************************************************************
@@ -112,6 +114,9 @@
   (if (or (eq major-mode 'html-mode) 
 	  (eq major-mode 'markdown-mode)) 
       (setq doxy-cmt-srt "<!-- @"))
+  (if (or (eq major-mode 'tex-mode)
+          (eq major-mode 'latex-mode))
+      (setq doxy-cmt-srt "%% @"))
   )
 
 (defun insert-doxy-comment (tag value)
@@ -159,6 +164,12 @@
 		      "####################################" 
 		      "####################################"
 		      "#-->")))
+  (if (or (eq major-mode 'tex-mode)
+          (eq major-mode 'latex-mode))
+      (insert (concat "%% "
+                      "####################################"
+                      "####################################"
+                      "#####")))
   (insert "\n")
 )
 
@@ -189,6 +200,8 @@
 	  (eq major-mode 'emacs-lisp-mode)) (insert ";;; "))
   (if (or (eq major-mode 'html-mode) 
   	  (eq major-mode 'markdown-mode)) (insert "<!--"))
+  (if (or (eq major-mode 'tex-mode)
+          (eq major-mode 'latex-mode)) (insert "%% "))
   (insert (concat "end " (file-name-nondirectory buffer-file-name)
 		  comment-end "\n"))
   )

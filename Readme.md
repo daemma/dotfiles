@@ -5,7 +5,7 @@
 <!-- @date       2015-03-05 -->
 <!-- @copyright  GPLv3+ -->
 
-# Some .dotfiles -- v2.0.0
+# Some .dotfiles
 This project has moved to 
 [gitlab.com/daemma/dotfiles](https://gitlab.com/daemma/dotfiles)
 
